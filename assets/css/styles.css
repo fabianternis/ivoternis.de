@@ -63,7 +63,7 @@ body {
 .hero {
     width: 100%;
     text-align: center;
-    padding: 100px 20px 80px;
+    padding: 80px 20px 60px;
     background-color: var(--accent-yellow);
     border-bottom: var(--border-thickness) solid var(--text-primary);
     position: relative;
@@ -203,6 +203,13 @@ body {
     transform: rotate(2deg);
     box-shadow: 4px 4px 0 var(--text-primary);
     margin-top: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+}
+
+.tagline:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 6px 6px 0 var(--text-primary);
 }
 
 /* Main Container */
@@ -500,8 +507,8 @@ body {
 }
 
 .affiliate-logo-container {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     background-color: #fff;
     border: 3px solid var(--text-primary);
     border-radius: 12px;
@@ -509,7 +516,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px;
+    padding: 15px;
     flex-shrink: 0;
     transform: rotate(-3deg);
     transition: transform 0.3s ease;
@@ -592,12 +599,17 @@ body {
     font-size: 1rem;
     font-weight: 800;
     box-shadow: 4px 4px 0 var(--text-primary);
-    transform: rotate(calc(-2deg + (Math.random() * 4deg))); /* Will be overridden slightly below */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.credit-badge:nth-child(1) { transform: rotate(-2deg); background-color: var(--accent-yellow); }
-.credit-badge:nth-child(2) { transform: rotate(1deg); background-color: #fff; }
-.credit-badge:nth-child(3) { transform: rotate(-1deg); background-color: var(--accent-purple); color: #fff; }
+.credit-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 6px 6px 0 var(--text-primary);
+}
+
+.credit-badge:nth-child(1) { background-color: var(--accent-yellow); }
+.credit-badge:nth-child(2) { background-color: #fff; }
+.credit-badge:nth-child(3) { background-color: var(--accent-purple); color: #fff; }
 
 .credit-badge a {
     color: inherit;
@@ -658,7 +670,7 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
-        padding: 60px 20px 40px;
+        padding: 40px 20px 30px;
     }
 
     .hero h1 {
