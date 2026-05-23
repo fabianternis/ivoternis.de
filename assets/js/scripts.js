@@ -111,7 +111,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (githubActivityContainer) {
             githubActivityContainer.innerHTML = `
-                <p>GitHub Aktivitäts-Streak: <strong>${streak}${streakSuffix} Tage</strong></p>
+                <i class="fab fa-github widget-icon"></i>
+                <div class="widget-content">
+                    <p>GitHub Aktivitäts-Streak</p>
+                    <strong>${streak}${streakSuffix} Tage</strong>
+                </div>
             `;
         }
     }
@@ -153,11 +157,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
 
                 chessComLastOnlineContainer.innerHTML = `
-                    <p>Zuletzt Online auf Chess.com: <strong>${formattedDate}</strong></p>
+                    <i class="fas fa-chess widget-icon"></i>
+                    <div class="widget-content">
+                        <p>Zuletzt Online (Exakt)</p>
+                        <strong>${formattedDate}</strong>
+                    </div>
                 `;
             } else {
                 chessComLastOnlineContainer.innerHTML =
-                    '<p>Keine "zuletzt Online"-Daten von Chess.com verfügbar.</p>';
+                    '<div class="widget-content"><p>Keine Daten von Chess.com verfügbar.</p></div>';
             }
         } catch (error) {
             console.error(
@@ -228,11 +236,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const relativeTime = formatRelativeTime(lastOnlineDate);
 
                 chessComDynamicLastSeenContainer.innerHTML = `
-                    <p>Zuletzt Online auf Chess.com: <strong>${relativeTime}</strong></p>
+                    <i class="fas fa-chess widget-icon"></i>
+                    <div class="widget-content">
+                        <p>Zuletzt Online (Chess.com)</p>
+                        <strong>${relativeTime}</strong>
+                    </div>
                 `;
             } else {
                 chessComDynamicLastSeenContainer.innerHTML =
-                    '<p>Keine "zuletzt Online"-Daten von Chess.com verfügbar.</p>';
+                    '<div class="widget-content"><p>Keine Daten von Chess.com verfügbar.</p></div>';
             }
         } catch (error) {
             console.error(
@@ -324,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 ${categoriesHtml}
                 <div class="project-card-footer">
-                    <span class="project-card-downloads">Downloads: ${project.downloads.toLocaleString()}</span>
+                    <span class="project-card-downloads">${project.downloads.toLocaleString()}</span>
                     <a href="${sanitizeHTML(
                         projectUrl,
                     )}" target="_blank" class="project-card-link">Ansehen</a>
