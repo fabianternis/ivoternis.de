@@ -384,6 +384,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Randomize initial placement of link cards
+    const linkCards = document.querySelectorAll('.link-card');
+    linkCards.forEach(card => {
+        const randomRotation = (Math.random() * 6) - 3; // -3deg to 3deg
+        const randomX = (Math.random() * 4) - 2; // -2px to 2px
+        const randomY = (Math.random() * 4) - 2; // -2px to 2px
+
+        const baseTransform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg)`;
+        card.style.transform = baseTransform;
+        card.dataset.baseTransform = baseTransform;
+    });
+
     // Playful Neo-Brutalist Interactivity
     const playfulCards = document.querySelectorAll('.link-card, .widget-card, .project-card, .affiliate-card a');
     const playfulColors = [
@@ -408,7 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.addEventListener('mouseleave', () => {
             card.style.backgroundColor = 'var(--bg-secondary)';
-            card.style.transform = '';
+            card.style.transform = card.dataset.baseTransform || '';
         });
 
         card.addEventListener('mousedown', () => {
@@ -435,7 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                         node.addEventListener('mouseleave', () => {
                             node.style.backgroundColor = 'var(--bg-secondary)';
-                            node.style.transform = '';
+                            node.style.transform = node.dataset.baseTransform || '';
                         });
                         node.addEventListener('mousedown', () => {
                             node.style.transform = 'translate(6px, 6px)';
